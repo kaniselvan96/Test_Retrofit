@@ -9,9 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class RecyclerAdapter(val context: Context, val dataList: List<DataModelItem>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-
-
+class RecyclerAdapter(val dataList: List<DataModelItem>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemTitle: TextView
