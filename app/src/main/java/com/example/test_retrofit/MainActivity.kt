@@ -30,9 +30,20 @@ class MainActivity : AppCompatActivity() {
 //
 //        getMyData()
 
+        val transition = supportFragmentManager.beginTransaction()
+
         val fragmentA = FragmentA()
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA).commit()
-    }
+        transition.replace(R.id.fragment_container, fragmentA).commit()
+
+        bt_fragmentA.setOnClickListener{
+            transition.replace(R.id.fragment_container, fragmentA).commit()
+        }
+
+        val fragmentB = FragmentB()
+        bt_fragmentB.setOnClickListener {
+           transition.replace(R.id.fragment_container, fragmentB).commit()
+        }
+
 
 //    private fun getMyData(){
 //        val retrofitBuilder = Retrofit.Builder()
@@ -59,5 +70,5 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        })
 //
-//    }
+    }
 }
