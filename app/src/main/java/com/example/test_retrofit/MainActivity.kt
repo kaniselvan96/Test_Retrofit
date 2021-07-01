@@ -24,51 +24,40 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
-//
 //        recyclerView.setHasFixedSize(true)
 //        recyclerView.layoutManager = linearLayoutManager
 //
 //        getMyData()
 
-        val transition = supportFragmentManager.beginTransaction()
 
         val fragmentA = FragmentA()
-        transition.replace(R.id.fragment_container, fragmentA).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA).commit()
 
-        bt_fragmentA.setOnClickListener{
-            transition.replace(R.id.fragment_container, fragmentA).commit()
+        bt_fragmentA.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA).commit()
         }
 
         val fragmentB = FragmentB()
         bt_fragmentB.setOnClickListener {
-           transition.replace(R.id.fragment_container, fragmentB).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentB).commit()
         }
 
+    }
 
 //    private fun getMyData(){
-//        val retrofitBuilder = Retrofit.Builder()
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .baseUrl("https://jsonplaceholder.typicode.com/")
-//                .build()
-//                .create(SimpleApi::class.java)
 //
-//        val retrofitData = retrofitBuilder.getData()
-//
-//        retrofitData.enqueue(object : Callback<List<DataModelItem>?> {
+//        val simpleApi = SimpleApi.create().getData()
+//        simpleApi.enqueue(object : Callback<List<DataModelItem>?> {
 //            override fun onResponse(call: Call<List<DataModelItem>?>, response: Response<List<DataModelItem>?>) {
 //                val responseBody = response.body()!!
-//                println("Data: $responseBody")
-//
-//                recyclerAdapter = RecyclerAdapter(baseContext, responseBody)
-//                recyclerAdapter.notifyDataSetChanged()
+//                recyclerAdapter = RecyclerAdapter(responseBody)
 //                recyclerView.adapter = recyclerAdapter
-//
 //            }
 //
 //            override fun onFailure(call: Call<List<DataModelItem>?>, t: Throwable) {
-//               println("Error: Failed 1234")
+//                println("Error: Failed 1234")
 //            }
 //        })
 //
-    }
+//    }
 }
