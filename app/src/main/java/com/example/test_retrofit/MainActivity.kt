@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_a.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,13 +36,15 @@ class MainActivity : AppCompatActivity() {
 
 
         val fragmentA = FragmentA()
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA).commit()
+        val fragmentB = FragmentB()
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragmentA)
+                .commit()
 
         bt_fragmentA.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentA).commit()
         }
 
-        val fragmentB = FragmentB()
         bt_fragmentB.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragmentB).commit()
         }

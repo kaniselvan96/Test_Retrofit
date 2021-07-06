@@ -8,18 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_layout.view.*
+import retrofit2.Response
 
 class RecyclerAdapter(val dataList: List<DataModelItem>): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var itemTitle: TextView
-        var itemId: TextView
-
-        init {
-            itemTitle = itemView.item_title
-            itemId = itemView.item_id
-        }
-
+        var itemTitle: TextView = itemView.item_title
+        var itemId: TextView = itemView.item_id
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
